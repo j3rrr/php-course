@@ -28,7 +28,6 @@ function Navigation()
     echo "</ul>";
 
 }
-
 function getTitle()
 {
 

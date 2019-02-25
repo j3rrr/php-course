@@ -1,29 +1,47 @@
+<?php
 
-<?php include "functions.php"; ?>
-<?php include "includes/header.php";?>
+    if (isset($_POST['submit'])) {
+        $message = $_POST['message'];
+    }
 
-	<section class="content">
-
-		<aside class="col-xs-4">
-		
-		<?php Navigation();?>
-			
-		</aside><!--SIDEBAR-->
-
-
-<article class="main-content col-xs-8">
- 
-
-	<?php  
-
-/*  Step1: Make a form that submits one value to POST super global
-
-
- */
-
-	
 ?>
 
+<?php include "functions.php";?>
+<?php include "includes/header.php";?>
 
-</article><!--MAIN CONTENT-->
-<?php include "includes/footer.php"; ?>
+<section class="content">
+
+    <aside class="col-xs-4">
+
+        <?php Navigation();?>
+
+    </aside>
+    <!--SIDEBAR-->
+
+
+    <article class="main-content col-xs-8">
+
+        <?php
+
+            /*  Step1: Make a form that submits one value to POST super global
+
+             */
+
+        ?>
+
+        <form action="6.php" method="post">
+            <input type="text" name="message">
+            <input type="submit" name="submit">
+        </form>
+
+        <br>
+
+        <?php
+
+            echo $message;
+
+        ?>
+
+    </article>
+    <!--MAIN CONTENT-->
+    <?php include "includes/footer.php";?>
