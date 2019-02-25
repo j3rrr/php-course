@@ -10,8 +10,18 @@ function createRow()
         $username = $_POST['username'];
         $password = $_POST['password'];
 
+        $username = mysqli_real_escape_string($connection, $username);
+        $password = mysqli_real_escape_string($connection, $password);
+
+        // Password encryption
+        $hashFormat = "$2y$10$";
+        $salt = "iusesomecrazystrings22";
+        $hashAndSalt = $hashFormat . $salt;
+
+        $encrypt_password = crypt($password, $hashAndSalt);
+
         $query = "INSERT INTO users(username,password)";
-        $query .= "VALUES ('$username','$password')";
+        $query .= "VALUES ('$username','$encrypt_password')";
 
         $result = mysqli_query($connection, $query);
 
